@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginRegisterController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth')->except(['register', 'login', 'store', 'authenticate']);
-    }
 
     public function register(){
         return view('auth.register');
@@ -33,15 +30,13 @@ class LoginRegisterController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:250',
-            'email' => 'required|email|max:250|unique:users',
+            'email' => 'required|string|max:250',
             'password' => 'required|min:8|confirmed',
-            'level' => ['required', 'string', 'in:user,admin'] ,
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'level' => $request->level,
             'password' => Hash::make($request->password)
         ]);
 

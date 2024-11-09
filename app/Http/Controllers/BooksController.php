@@ -10,6 +10,10 @@ class BooksController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct(){
+        $this->middleware('auth')->except(['register', 'login', 'store', 'authenticate']);
+    }
+
     public function index()
     {
         $books_data = Books::all()->sortBy('id');

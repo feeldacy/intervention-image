@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'testAdmin',
             'email' => 'testingAdmin@gmail.com',
-            'level' => User::ROLE_ADMIN, // Ensure this matches the admin role constant
-            'password' => Hash::make('12345678'), // Use a secure password
+            'level' => 'admin',
+            'password' => Hash::make('12345678'),
         ]);
     }
 }

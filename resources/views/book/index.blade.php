@@ -43,7 +43,9 @@
     @endif
 
     <div class="tablesview">
+        @if(Auth::user()->level == 'admin')
         <a href="{{ route('books.create')}}" class="btn btn-primary float-end" style="margin-bottom: 30px;">Tambah Buku</a>
+        @endif
         <table class="table table-bordered border-black border-3" id="datatable">
             <thead class="table-primary border-black">
                 <tr class="text-center">
@@ -53,8 +55,8 @@
                     <th>Harga</th>
                     <th>Tanggal Terbit</th>
                     @if(Auth::user()->level == 'admin')
-                        <th>Hapus</th>
-                        <th>Edit</th>
+                    <th>Hapus</th>
+                    <th>Edit</th>
                     @endif
 
                 </tr>
