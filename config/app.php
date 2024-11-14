@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Intervention\Image\Laravel\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -212,4 +212,5 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'Image'=>Intervention\Image\Laravel\Facades\Image::class,
 ];

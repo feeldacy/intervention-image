@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::controller(BooksController::class)->group(function(){
     Route::get('/books/{id}', 'edit')->name('books.edit');
     Route::put('/books/{id}', 'update')->name('books.update');
     Route::post('/books/{id}', 'update')->name('books.update');
+    Route::get('/books/detail/{id}', 'showCover')->name('books.detail');
 });
 
 Route::controller(LoginRegisterController::class)->group(function() {
@@ -26,3 +28,8 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::resource('gallery', GalleryController::class);
+
+Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
+

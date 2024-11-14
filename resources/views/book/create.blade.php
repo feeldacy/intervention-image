@@ -47,8 +47,8 @@
                 <input type="date" name="tgl_terbit" id="dateInput" class="form-control" placeholder="Masukkan Tanggal">
             </div>
             <div class="mb-3">
-                <label for="photo" class="form-label">Photo</label>
-                <input type="file" name="photo" id="photo" class="form-control" value="{{old('photo')}}">
+                <label for="cover" class="form-label">Photo</label>
+                <input type="file" name="cover" id="cover" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan</button>
